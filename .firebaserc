@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-escala": {
+      "hosting": {
+        "firebaseEscalab": [
+          "angular-escala"
+        ]
+      }
+    }
+  }
+}
