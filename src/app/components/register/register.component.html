@@ -5,10 +5,39 @@
             <div class="form-group">
                 <input type="email" class="form-control" formControlName="email" placeholder="email">
             </div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <div *ngIf="email.errors.required">
+                    Emails is requiered.
+                </div>
+                <div *ngIf="email.errors.email">
+                    Bad format.
+                </div>
+            </div>
             <div class="form-group">
                 <input type="password" class="form-control" formControlName="pass" placeholder="pass">
             </div>
-            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="alert alert-danger">
+                <div *ngIf="pass.errors.required">
+                    Password is requiered.
+                </div>
+                <div *ngIf="pass.errors.minlength">
+                    Min 6 characters.
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="name" placeholder="name">
+            </div>
+            <div class="form-group">
+                <label for="membership">Select type of membership</label>
+                <select class="form-control" formControlName="memberships">
+                    <option *ngFor="let membership of memberships" [value]="membership">{{membership}}</option>
+                </select>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" formControlName="newsletter">
+                <label for="newsletter">Suscribe to newsletter?</label>
+            </div>
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-lg">Register</button>
         </form>
     </div>
 </div>

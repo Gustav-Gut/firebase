@@ -30,12 +30,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  logout(){
-    this.loginService.logout().then(resp => {
-      console.log('logout ok -->', resp);
-    }).catch(error => {
-      console.error('error logout -->', error);
-    })
-  }
-
 }
